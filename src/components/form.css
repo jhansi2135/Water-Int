@@ -1,0 +1,38 @@
+.form {
+  width: 600px;
+  height: 400px;
+  border: 5px solid black;
+  padding: 10px;
+  background-color: black;
+  color: cornsilk;
+  font-size: 15px;
+  font-weight: bold;
+}
+.input {
+  width: 30%;
+  height: 20px;
+}
+
+p {
+  display: inline;
+}
+
+.change {
+  color: #f3edf0;
+  background-color: #39129d;
+  border: 5px #f8f5f5;
+  font-weight: bold;
+  font-size: 15px;
+}
+.sep {
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.border {
+  border: 2px solid cornsilk;
+}

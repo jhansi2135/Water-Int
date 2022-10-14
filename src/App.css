@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+}
+h1,
+h5 {
+  color: cornsilk;
+}
+.Main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
