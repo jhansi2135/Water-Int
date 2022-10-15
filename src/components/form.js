@@ -1,8 +1,9 @@
 import "./form.css";
 import { useEffect, useState } from "react";
-// import Color from "./ColorChange.js";
 
 export function Form() {
+  const [isActive, setIsActive] = useState(true);
+
   const [userName, setUserName] = useState("");
   useEffect(() => {
     const json = localStorage.getItem("userName");
@@ -75,6 +76,7 @@ export function Form() {
   };
   const handleCalculateClick = function (event) {
     const data = { userName, age, gender, addInfo };
+    setIsActive(false);
     if (age >= 1 && age <= 3) {
       setCalculate("Your Task for today is to drink 0.8 litres.");
     }
@@ -113,92 +115,98 @@ export function Form() {
 
   return (
     <form className="form">
-      <div className="border">
-        <br />
-        <br />
-        <div className="sep">
-          <label>Name</label>
+      {isActive ? (
+        <div className="border">
           <br />
+          <br />
+          <div className="sep">
+            <label>Name</label>
+            <br />
+            <input
+              type="text"
+              onChange={handleNameChange}
+              value={userName}
+              className="input"
+            />
+            <br />
+            <label>Age</label>
+            <br />
+            <input
+              className="input"
+              type="number"
+              onChange={handleAgeChange}
+              value={age}
+              min="0"
+              max="80"
+            />
+          </div>
+          <br />
+          <br />
+          <p>Gender: </p>
           <input
-            type="text"
-            onChange={handleNameChange}
-            value={userName}
-            className="input"
+            type="radio"
+            id="Female"
+            name="Gender"
+            onChange={handleGenderChange}
+            checked={gender === "Female"}
+            value="Female"
+            onClick={() => setGender("Female")}
           />
-          <br />
-          <label>Age</label>
-          <br />
+          <label for="Female">Female</label>
           <input
-            className="input"
-            type="number"
-            onChange={handleAgeChange}
-            value={age}
-            min="0"
-            max="80"
+            type="radio"
+            id="Male"
+            name="Gender"
+            onChange={handleGenderChange}
+            checked={gender === "Male"}
+            value="Male"
+            onClick={() => setGender("Male")}
           />
+          <label for="Male">Male</label>
+          <br />
+          <br />
+          <br />
+          <label for="addinfo">Additional Information</label>
+          <br />
+          <select
+            className="input"
+            name="addInfo"
+            onChange={handleAddInfoChange}
+            value={addInfo}
+            id="addinfo"
+          >
+            <option value="Pregnant-women">Pregnant Women</option>
+            <option value="Breastfeeding-women">Breastfeeding Women</option>
+            <option value="None">None</option>
+          </select>
+          <br />
+          <br />
+          <br />
+          <button
+            type="button"
+            className="change input"
+            onClick={handleCalculateClick}
+            name="calbutton"
+          >
+            Calculate
+          </button>
+          <br />
+          <br />
+          <br />
         </div>
-        <br />
-        <br />
-        <p>Gender: </p>
-        <input
-          type="radio"
-          id="Female"
-          name="Gender"
-          onChange={handleGenderChange}
-          checked={gender === "Female"}
-          value="Female"
-          onClick={() => setGender("Female")}
-        />
-        <label for="Female">Female</label>
-        <input
-          type="radio"
-          id="Male"
-          name="Gender"
-          onChange={handleGenderChange}
-          checked={gender === "Male"}
-          value="Male"
-          onClick={() => setGender("Male")}
-        />
-        <label for="Male">Male</label>
-        <br />
-        <br />
-        <br />
-        <label for="addinfo">Additional Information</label>
-        <br />
-        <select
-          className="input"
-          name="addInfo"
-          onChange={handleAddInfoChange}
-          value={addInfo}
-          id="addinfo"
-        >
-          <option value="Pregnant-women">Pregnant Women</option>
-          <option value="Breastfeeding-women">Breastfeeding Women</option>
-          <option value="None">None</option>
-        </select>
-        <br />
-        <br />
-        <br />
-        <button
-          type="button"
-          className="change input"
-          onClick={handleCalculateClick}
-          name="calbutton"
-        >
-          Calculate
-        </button>
-        <br />
-        <br />
-        <br />
-      </div>
-      <br />
-      <br />
-      <div className="border">
-        <br />
-        {calculate}
-        <br />
-        <br />
-      </div>
+      ) : (
+        <div className="border">
+          <br />
+          {calculate}
+          <br />
+          <br />
+          <button className="change input" onClick={() => setIsActive(false)}>
+            Back
+          </button>
+          <br />
+          <br />
+        </div>
+      )}
     </form>
   );
 }
