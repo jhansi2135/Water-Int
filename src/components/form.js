@@ -78,25 +78,25 @@ export function Form() {
     const data = { userName, age, gender, addInfo };
     setIsActive(false);
     if (age >= 1 && age <= 3) {
-      setCalculate(userName + ", your Task for today is to drink 0.8 litres.");
+      setCalculate(userName + ", your task for today is to drink 0.8 litres.");
     }
     if (age >= 4 && age <= 8) {
-      setCalculate(userName + ", your Task for today is to drink 1.2 litres.");
+      setCalculate(userName + ", your task for today is to drink 1.2 litres.");
     }
     if (age >= 9 && age <= 13) {
       setCalculate(
-        userName + ", your Task for today is to drink 1.6-1.9 litres."
+        userName + ", your task for today is to drink 1.6-1.9 litres."
       );
     }
     if (age >= 14 && age <= 18) {
       setCalculate(
-        userName + ", your Task for today is to drink 1.9 - 2.6 litres."
+        userName + ", your task for today is to drink 1.9 - 2.6 litres."
       );
     }
     if (age >= 19) {
       if (gender === "Male") {
         setCalculate(
-          userName + ", your Task for today is to drink 3.1 litres."
+          userName + ", your task for today is to drink 3.1 litres."
         );
       }
     }
@@ -104,17 +104,17 @@ export function Form() {
       if (gender === "Female") {
         if (addInfo === "None") {
           setCalculate(
-            userName + ", your Task for today is to drink 2.2 litres."
+            userName + ", your task for today is to drink 2.2 litres."
           );
         }
         if (addInfo === "Pregnant-women") {
           setCalculate(
-            userName + ", your Task for today is to drink 2.4 litres."
+            userName + ", your task for today is to drink 2.4 litres."
           );
         }
         if (addInfo === "Breastfeeding-women") {
           setCalculate(
-            userName + ", your Task for today is to drink 3.1 litres."
+            userName + ", your task for today is to drink 3.1 litres."
           );
         }
       }
