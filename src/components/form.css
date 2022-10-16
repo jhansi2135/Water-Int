@@ -36,7 +36,7 @@ p {
   width: 600px;
   height: 300px;
 }
-.change:hover {
+.button:hover {
   background-color: white;
   color: #39129d;
 }
