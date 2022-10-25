@@ -93,33 +93,27 @@ export function Form() {
         userName + ", your task for today is to drink 1.9 - 2.6 litres."
       );
     }
-    if (age >= 19) {
-      if (gender === "Male") {
+    if (age >= 19 && gender === "Male") {
+      setCalculate(userName + ", your task for today is to drink 3.1 litres.");
+    }
+    if (age >= 19 && gender === "Female") {
+      if (addInfo === "None") {
+        setCalculate(
+          userName + ", your task for today is to drink 2.2 litres."
+        );
+      }
+      if (addInfo === "Pregnant-women") {
+        setCalculate(
+          userName + ", your task for today is to drink 2.4 litres."
+        );
+      }
+      if (addInfo === "Breastfeeding-women") {
         setCalculate(
           userName + ", your task for today is to drink 3.1 litres."
         );
       }
     }
-    if (age >= 19) {
-      if (gender === "Female") {
-        if (addInfo === "None") {
-          setCalculate(
-            userName + ", your task for today is to drink 2.2 litres."
-          );
-        }
-        if (addInfo === "Pregnant-women") {
-          setCalculate(
-            userName + ", your task for today is to drink 2.4 litres."
-          );
-        }
-        if (addInfo === "Breastfeeding-women") {
-          setCalculate(
-            userName + ", your task for today is to drink 3.1 litres."
-          );
-        }
-      }
-    }
-    if (age <= 0) {
+    if (age <= 0 || age > 81 || userName === "") {
       setCalculate("Insufficient Data");
     }
     console.log(data);
@@ -132,24 +126,30 @@ export function Form() {
           <br />
           <br />
           <div className="sep">
-            <label>Name</label>
+            <label for="name">Name</label>
             <br />
             <input
+              id="name"
               type="text"
               onChange={handleNameChange}
               value={userName}
               className="input"
+              placeholder="Enter your Name"
+              required
             />
             <br />
-            <label>Age</label>
+            <label for="age">Age</label>
             <br />
             <input
+              id="age"
+              placeholder="Enter your Age"
               className="input"
               type="number"
               onChange={handleAgeChange}
               value={age}
               min="0"
               max="80"
+              required
             />
           </div>
           <br />
@@ -187,9 +187,9 @@ export function Form() {
             value={addInfo}
             id="addinfo"
           >
+            <option value="None">None</option>
             <option value="Pregnant-women">Pregnant Women</option>
             <option value="Breastfeeding-women">Breastfeeding Women</option>
-            <option value="None">None</option>
           </select>
           <br />
           <br />
