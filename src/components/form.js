@@ -113,8 +113,11 @@ export function Form() {
         );
       }
     }
-    if (age <= 0 || age > 81 || userName === "") {
+    if (age <= 0 || age > 81) {
       setCalculate("Insufficient Data");
+    }
+    if (userName === "") {
+      setCalculate("Please");
     }
     console.log(data);
   };
