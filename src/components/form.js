@@ -117,7 +117,7 @@ export function Form() {
       setCalculate("Insufficient Data");
     }
     if (userName === "") {
-      setCalculate("Please");
+      setCalculate("Please Enter Your Name");
     }
     console.log(data);
   };
