@@ -120,7 +120,23 @@ export function Form() {
       setCalculate("Please Enter Your Name");
     }
     console.log(data);
+    setColor(currentColor);
   };
+
+  const [color, setColor] = useState();
+
+  const colors = [
+    "Aquamarine",
+    "BlueViole",
+    "Chartreuse",
+    "CornflowerBlue",
+    "Red",
+    "Yellow",
+    "Magenta",
+    "Pink",
+  ];
+  const currentColor = colors[Math.floor(Math.random() * 8)];
+  const divStyle = { color: color };
 
   return (
     <form className="form">
@@ -212,7 +228,7 @@ export function Form() {
       ) : (
         <div className="border">
           <br />
-          {calculate}
+          <div style={divStyle}>{calculate}</div>
           <br />
           <br />
           <button className="change input" onClick={() => setIsActive(false)}>
