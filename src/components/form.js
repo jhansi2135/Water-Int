@@ -98,19 +98,13 @@ export function Form() {
     }
     if (age >= 19 && gender === "Female") {
       if (addInfo === "None") {
-        setCalculate(
-          userName + ", your task for today is to drink 2.2 litres."
-        );
+        setCalculate(userName + ", your task for today is to drink 2.2 litres.");
       }
       if (addInfo === "Pregnant-women") {
-        setCalculate(
-          userName + ", your task for today is to drink 2.4 litres."
-        );
+        setCalculate(userName + ", your task for today is to drink 2.4 litres.");
       }
       if (addInfo === "Breastfeeding-women") {
-        setCalculate(
-          userName + ", your task for today is to drink 3.1 litres."
-        );
+        setCalculate(userName + ", your task for today is to drink 3.1 litres.");
       }
     }
     if (age <= 0 || age > 81) {
