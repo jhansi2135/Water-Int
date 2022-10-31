@@ -116,6 +116,9 @@ export function Form() {
     if (age === "") {
       setCalculate("Please Enter Your Age");
     }
+    if (userName === "" && age === "") {
+      setCalculate("Please Enter Your Name and Age");
+    }
     console.log(data);
     setColor(currentColor);
   };

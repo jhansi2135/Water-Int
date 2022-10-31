@@ -4,6 +4,7 @@
 h1,
 h5 {
   color: rgb(204, 177, 68);
+ 
 }
 .Main {
   display: flex;
@@ -11,4 +12,8 @@ h5 {
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
+}
+h5 {
+ padding-top: 20px;
+ 
 }
