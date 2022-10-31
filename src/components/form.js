@@ -22,7 +22,7 @@ export function Form() {
     json && setGender(JSON.parse(json));
   }, []);
 
-  const [addInfo, setAddInfo] = useState("");
+  const [addInfo, setAddInfo] = useState("None");
   useEffect(() => {
     const json = localStorage.getItem("addInfo");
     json && setAddInfo(JSON.parse(json));
@@ -112,6 +112,9 @@ export function Form() {
     }
     if (userName === "") {
       setCalculate("Please Enter Your Name");
+    }
+    if (age === "") {
+      setCalculate("Please Enter Your Age");
     }
     console.log(data);
     setColor(currentColor);
